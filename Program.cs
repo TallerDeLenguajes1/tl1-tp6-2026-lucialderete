@@ -42,59 +42,99 @@ do
     Console.WriteLine("2) Resta");
     Console.WriteLine("3) Multiplicacion");
     Console.WriteLine("4) Dividir");
+    Console.WriteLine("5) Valor Absoluto");
+    Console.WriteLine("6) Cuadrado");
+    Console.WriteLine("7) Raiz Cuadrada");
+    Console.WriteLine("8) Seno");
+    Console.WriteLine("9) Coseno");
+    Console.WriteLine("10) Parte entera del float");
     Console.WriteLine("0) Salir");
+
     string op = Console.ReadLine();
 
     if (int.TryParse(op, out opcion))
     {
-        if(opcion == 0) continue;
+        if (opcion == 0) break;
 
-        Console.WriteLine("Ingrese el primer numero: ");
-        string num1 = Console.ReadLine();
-        Console.WriteLine("Ingrese el segundo numero: ");
-        string num2 = Console.ReadLine();
-
-        if (double.TryParse(num1, out double n1) && double.TryParse(num2, out double n2))
+        double resultado = 0;
+        if (opcion >= 1 && opcion <= 4)
         {
-            double resultado = 0;
+            //para las operaciones que necesito 2 numeros
+            Console.WriteLine("Ingrese el primer numero: ");
+            string num1 = Console.ReadLine();
+            Console.WriteLine("Ingrese el segundo numero: ");
+            string num2 = Console.ReadLine();
 
-            switch (opcion)
+            if (double.TryParse(num1, out double n1) && double.TryParse(num2, out double n2))
             {
-                case 1:
-                    resultado = n1 + n2;
-                    break;
-                case 2:
-                    resultado = n1 - n2;
-                    break;
-                case 3:
-                    resultado = n1 * n2;
-                    break;
-                case 4:
-                    if (n2 != 0)
-                    {
-                        resultado = n1 / n2;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error, no se puede divir en 0");
-                    }
-                    break;
-                default:
-                    Console.WriteLine("Opcion no valida xd");
-                    break;
+                switch (opcion)
+                {
+                    case 1:
+                        resultado = n1 + n2;
+                        break;
+                    case 2:
+                        resultado = n1 - n2;
+                        break;
+                    case 3:
+                        resultado = n1 * n2;
+                        break;
+                    case 4:
+                        if (n2 != 0)
+                        {
+                            resultado = n1 / n2;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error, no se puede divir en 0");
+                        }
+                        break;
+
+                    default:
+                        Console.WriteLine("Opcion no valida xd");
+                        break;
+                }
+                Console.WriteLine($"El resultado es: {resultado}");
+            }
+        }
+        else if (opcion >= 5 && opcion <= 10)
+        {
+            Console.WriteLine("Ingrese un numero: ");
+            string num1 = Console.ReadLine();
+            if (double.TryParse(num1, out double n1))
+            {
+                switch (opcion)
+                {
+                    case 5:
+                        resultado = Math.Abs(n1);
+                        break;
+                    case 6:
+                        resultado = Math.Sin(n1);
+                        break;
+                    case 7:
+                        resultado = Math.Sqrt(n1);
+                        break;
+                    case 8:
+                        resultado = Math.Cos(n1);
+                        break;
+                    case 9:
+                        resultado = Math.Truncate(n1);
+                        break;
+                    default:
+                        Console.WriteLine("Opcion no valida xd");
+                        break;
+                }
             }
 
+
             Console.WriteLine($"El resultado es: {resultado}");
-
-
         }
         else
         {
-            Console.WriteLine("Ingrese numeros validos xfa");
+            Console.WriteLine("Opcion no valida :( )");
         }
-
-
     }
-} while (opcion != 0);
-Console.WriteLine("Fin del programa uwu");
 
+    
+} while (opcion != 0);
+
+Console.WriteLine("Fin del programa uwu");
