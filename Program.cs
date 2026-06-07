@@ -108,15 +108,19 @@ do
                         resultado = Math.Abs(n1);
                         break;
                     case 6:
-                        resultado = Math.Sin(n1);
+                        resultado = Math.Pow(n1, 2);
                         break;
+
                     case 7:
                         resultado = Math.Sqrt(n1);
                         break;
                     case 8:
-                        resultado = Math.Cos(n1);
+                        resultado = Math.Sin(n1);
                         break;
                     case 9:
+                        resultado = Math.Cos(n1);
+                        break;
+                    case 10:
                         resultado = Math.Truncate(n1);
                         break;
                     default:
@@ -124,7 +128,6 @@ do
                         break;
                 }
             }
-
 
             Console.WriteLine($"El resultado es: {resultado}");
         }
@@ -134,7 +137,7 @@ do
         }
     }
 
-    
+
 } while (opcion != 0);
 
 Console.WriteLine("Fin del programa uwu");
